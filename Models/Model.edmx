@@ -41,7 +41,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="m_id" Type="int" />
-          <Property Name="book_id" Type="int" />
+          <Property Name="book_id" Type="varchar" MaxLength="50" />
           <Property Name="issuedate" Type="date" />
           <Property Name="returndate" Type="date" />
         </EntityType>
@@ -182,8 +182,8 @@
             <End Role="Publisher" EntitySet="Publishers" />
             <End Role="Book" EntitySet="Books" />
           </AssociationSet>
-          <EntitySet Name="IssueBooks" EntityType="libraryModel.IssueBook" />
           <EntitySet Name="ReturnBooks" EntityType="libraryModel.ReturnBook" />
+          <EntitySet Name="IssueBooks" EntityType="libraryModel.IssueBook" />
         </EntityContainer>
         <EntityType Name="Member">
           <Key>
@@ -246,16 +246,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="IssueBook">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="m_id" Type="Int32" />
-          <Property Name="book_id" Type="Int32" />
-          <Property Name="issuedate" Type="DateTime" Precision="0" />
-          <Property Name="returndate" Type="DateTime" Precision="0" />
-        </EntityType>
         <EntityType Name="ReturnBook">
           <Key>
             <PropertyRef Name="id" />
@@ -266,6 +256,16 @@
           <Property Name="returndate" Type="DateTime" Precision="0" />
           <Property Name="elap" Type="Int32" />
           <Property Name="fine" Type="Int32" />
+        </EntityType>
+        <EntityType Name="IssueBook">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="m_id" Type="Int32" />
+          <Property Name="book_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="issuedate" Type="DateTime" Precision="0" />
+          <Property Name="returndate" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -326,17 +326,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="IssueBooks">
-            <EntityTypeMapping TypeName="libraryModel.IssueBook">
-              <MappingFragment StoreEntitySet="IssueBook">
-                <ScalarProperty Name="returndate" ColumnName="returndate" />
-                <ScalarProperty Name="issuedate" ColumnName="issuedate" />
-                <ScalarProperty Name="book_id" ColumnName="book_id" />
-                <ScalarProperty Name="m_id" ColumnName="m_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ReturnBooks">
             <EntityTypeMapping TypeName="libraryModel.ReturnBook">
               <MappingFragment StoreEntitySet="ReturnBook">
@@ -345,6 +334,17 @@
                 <ScalarProperty Name="returndate" ColumnName="returndate" />
                 <ScalarProperty Name="book" ColumnName="book" />
                 <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IssueBooks">
+            <EntityTypeMapping TypeName="libraryModel.IssueBook">
+              <MappingFragment StoreEntitySet="IssueBook">
+                <ScalarProperty Name="returndate" ColumnName="returndate" />
+                <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

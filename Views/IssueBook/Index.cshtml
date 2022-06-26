@@ -15,28 +15,23 @@
             </div>
             <div class="form-group">
                 <label>Book</label>
-                <select class="form-control" id="book_id" name="book_id">
+                <select class="form-control" id="book_id" name="book_id" placeholder="Book" required>
                     <option>Please Select</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Issue Date</label>
-                <input type="date" id="issuedate" name="isuedate" class="form-control" required />
+                <input type="date" id="issuedate" name="issuedate" class="form-control" required />
             </div>
             <div class="form-group">
                 <label>Return Date</label>
                 <input type="date" id="returndate" name="returndate" class="form-control" required />
             </div>
             <div class="form-group">
-                <input type="submit" value="save" class="btn btn-success" required />
+                <input type="submit" value="Save" class="btn btn-success" required />
             </div>
 
-
-
-
         }
-
-
 
 
     </div>
@@ -52,8 +47,9 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
 
     <script>
-        getMid();
         getBooks();
+        getMid();
+        
 
         function getMid()
         {

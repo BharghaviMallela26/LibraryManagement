@@ -19,18 +19,6 @@ namespace LibraryManagement.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Save(ReturnBook returns)
-        {
-
-            if (ModelState.IsValid)
-            {
-                db.ReturnBooks.Add(returns);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(returns);
-        }
 
         public ActionResult GetMid(int mid)
         {
@@ -46,6 +34,20 @@ namespace LibraryManagement.Controllers
                             }).ToArray();
 
             return Json(memberid, JsonRequestBehavior.AllowGet);
+        }
+
+        
+        [HttpPost]
+        public ActionResult Save(ReturnBook returns)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.ReturnBooks.Add(returns);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(returns);
         }
     }
    

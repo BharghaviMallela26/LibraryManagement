@@ -13,8 +13,8 @@
         <AssociationConnector Association="libraryModel.FK_Book_Author" />
         <AssociationConnector Association="libraryModel.FK_Book_Category" />
         <AssociationConnector Association="libraryModel.FK_Book_Publisher" />
-        <EntityTypeShape EntityType="libraryModel.IssueBook" Width="1.5" PointX="5.375" PointY="5.75" />
         <EntityTypeShape EntityType="libraryModel.ReturnBook" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="libraryModel.IssueBook" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
